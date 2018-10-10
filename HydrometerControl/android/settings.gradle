@@ -1,0 +1,3 @@
+rootProject.name = 'HydrometerControl'
+
+include ':app'

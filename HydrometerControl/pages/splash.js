@@ -7,14 +7,25 @@ import { AreaChart, Grid } from 'react-native-svg-charts';
 import * as shape from 'd3-shape';
 
 
-
 export class Splash extends React.Component {
+
+  componentWillUnmount() {
+    clearTimeout(this.interval);
+  }
+
+  splash(){
+    this.interval = setTimeout(() => this.props.navigation.navigate('Index'), 1800);
+  }
+
+
   render() {
 
     const { navigate } = this.props.navigation;
 
     return (
       <View style={styles.container}>
+      {this.splash()}
+        <Text style={styles.text}>HydrometerControl</Text>
         
       </View>
     );
@@ -35,9 +46,13 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   text:{
-    flex: 0.5,
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    textAlignVertical: 'center',
+    textAlign: 'center',
+    color: '#fff',
+    fontSize: 30,
   },
   footer: {
     position: 'absolute',

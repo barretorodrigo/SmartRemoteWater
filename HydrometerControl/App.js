@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import { SwitchNavigator, createStackNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation';
 
 import {Splash} from './pages/splash';
 import {Index} from './pages/index';
 import {Details} from './pages/details';
 
 
-export const mainFlow = createStackNavigator({
+const mainFlow = createStackNavigator({
   Splash: {
     screen: Splash
   },

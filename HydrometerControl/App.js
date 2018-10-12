@@ -4,6 +4,7 @@ import { createStackNavigator } from 'react-navigation';
 import {Splash} from './pages/splash';
 import {Index} from './pages/index';
 import {Details} from './pages/details';
+import {Data} from './pages/data';
 
 
 const mainFlow = createStackNavigator({
@@ -15,6 +16,9 @@ const mainFlow = createStackNavigator({
   },
   Details: {
     screen: Details
+  },
+  Data: {
+    screen: Data
   },
 },{
   initialRouteName: 'Splash',

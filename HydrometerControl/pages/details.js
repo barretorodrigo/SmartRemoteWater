@@ -6,7 +6,7 @@ import { Path } from 'react-native-svg';
 import { AreaChart, Grid } from 'react-native-svg-charts';
 import * as shape from 'd3-shape';
 
-export class Details extends React.Component {
+export class Details extends React.PureComponent {
   render() {
 
     const { navigate } = this.props.navigation;
@@ -18,14 +18,6 @@ export class Details extends React.Component {
 
     const data = [ 50, 10, 40, 95, -4, -24, 85, 91, 35, 53, -53, 24, 50, -20, -80 ]
 
-        const Line = ({ line }) => (
-            <Path
-                key={'line'}
-                d={line}
-                stroke={'rgb(134, 65, 244)'}
-                fill={'none'}
-            />
-        )
 
     const list = [
       {
@@ -43,7 +35,7 @@ export class Details extends React.Component {
     return (
       <View style={styles.container}>
         <Header
-          leftComponent={<Icon name="angle-left" color="#fff" style={{fontSize:20}} />}
+          leftComponent={<Icon name="angle-left" color="#fff" style={{fontSize:20}} onPress={() =>  this.props.navigation.goBack()} />}
           centerComponent={{ text: 'HydrometerControl', style: { color: '#fff', fontSize: 22, } }}
           rightComponent={<Icon name="tint" color="#fff" style={{fontSize:15}} />}
         />
@@ -67,7 +59,8 @@ export class Details extends React.Component {
               leftIcon={{name: 'show-chart'}}
               backgroundColor='#3D6DCC'
               buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-              title='Dados' />
+              title='Dados' 
+              onPress={() => navigate('Data')}/>
           </Card>
         </View>
         <View style={styles.footer}>

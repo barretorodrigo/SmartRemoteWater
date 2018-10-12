@@ -165,6 +165,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="/home/barreto/projetoPos/react360/VRproject/HydrometerControl/android/app/build/intermediates/exploded-aar/HydrometerControl/react-native-svg/unspecified/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="e8f51a5ea2077048b0c9475c96aa44f3da99dd01">
+        <dex dex="/home/barreto/projetoPos/react360/VRproject/HydrometerControl/android/app/build/intermediates/pre-dexed/debug/HydrometerControl-react-native-svg-unspecified_91466183f9f5271369dcf841553135c719222a34.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/home/barreto/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.6.0/69edde9fc4b01c9fd51d25b83428837478c27254/okhttp-3.6.0.jar"
         jumboMode="false"
         optimize="true"

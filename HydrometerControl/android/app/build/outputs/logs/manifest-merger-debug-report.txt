@@ -65,6 +65,7 @@ ADDED from /home/barreto/projetoPos/react360/VRproject/HydrometerControl/android
 		ADDED from /home/barreto/projetoPos/react360/VRproject/HydrometerControl/android/app/src/main/AndroidManifest.xml:23:17-81
 uses-sdk
 INJECTED from /home/barreto/projetoPos/react360/VRproject/HydrometerControl/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [HydrometerControl:react-native-svg:unspecified] /home/barreto/projetoPos/react360/VRproject/HydrometerControl/android/app/build/intermediates/exploded-aar/HydrometerControl/react-native-svg/unspecified/AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:0.55.2] /home/barreto/projetoPos/react360/VRproject/HydrometerControl/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.55.2/AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:appcompat-v7:23.0.1] /home/barreto/projetoPos/react360/VRproject/HydrometerControl/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:support-v4:23.0.1] /home/barreto/projetoPos/react360/VRproject/HydrometerControl/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/AndroidManifest.xml:20:5-43

@@ -42,7 +42,7 @@ export class Index extends React.Component {
         <Header
           leftComponent={{ icon: 'menu', color: '#fff' }}
           centerComponent={{ text: 'HydrometerControl', style: { color: '#fff', fontSize: 22, } }}
-          rightComponent={<Icon name="tint" color="#fff" style={{fontSize:15}} />}
+          rightComponent={<Icon name="tint" color="#fff" style={{fontSize:15}} onPress={() =>  navigate('Data')}/>}
         />
 
         <View>

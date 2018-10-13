@@ -43,7 +43,7 @@ export class Index extends React.Component {
           
           centerComponent={{ text: 'HydrometerControl', style: { color: '#fff', fontSize: 22, } }}
           rightComponent={<Button 
-                          onPress={() =>  navigate('Data')} 
+                          onPress={() =>  navigate('Consolidated')} 
                           buttonStyle={{marginRight: -20, marginBottom:-10}}
                           icon={{name:"tint", type: 'font-awesome', style: { marginRight: 0, marginLeft: 0 }}} 
                           transparent>

@@ -1,4 +1,4 @@
-#Fri Oct 12 13:28:09 BRT 2018
+#Sat Oct 13 17:50:43 BRT 2018
 base.0=/home/barreto/projetoPos/react360/VRproject/HydrometerControl/android/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main
 renamed.0=classes.dex
 file.0=/home/barreto/projetoPos/react360/VRproject/HydrometerControl/android/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex

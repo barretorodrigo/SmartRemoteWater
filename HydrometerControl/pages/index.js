@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, StatusBar } from 'react-native';
-import {Header, Divider, ListItem} from 'react-native-elements';
+import {Header, Divider, ListItem, Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Path } from 'react-native-svg';
 import { AreaChart, Grid } from 'react-native-svg-charts';
@@ -40,9 +40,14 @@ export class Index extends React.Component {
     return (
       <View style={styles.container}>
         <Header
-          leftComponent={{ icon: 'menu', color: '#fff' }}
+          
           centerComponent={{ text: 'HydrometerControl', style: { color: '#fff', fontSize: 22, } }}
-          rightComponent={<Icon name="tint" color="#fff" style={{fontSize:15}} onPress={() =>  navigate('Data')}/>}
+          rightComponent={<Button 
+                          onPress={() =>  navigate('Data')} 
+                          buttonStyle={{marginRight: -20, marginBottom:-10}}
+                          icon={{name:"tint", type: 'font-awesome', style: { marginRight: 0, marginLeft: 0 }}} 
+                          transparent>
+                          </Button>}
         />
 
         <View>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, StatusBar } from 'react-native';
+import { StyleSheet, Text, View, StatusBar} from 'react-native';
 import {Header, Divider, ListItem, Card, Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Path } from 'react-native-svg';
@@ -38,9 +38,19 @@ export class Data extends React.PureComponent {
     return (
       <View style={styles.container}>
         <Header
-          leftComponent={<Icon name="angle-left" color="#fff" style={{fontSize:20}} onPress={() =>  this.props.navigation.goBack()} />}
+          leftComponent={<Button 
+                          onPress={() =>  this.props.navigation.goBack()} 
+                          buttonStyle={{marginLeft:-20, marginBottom:-10}}
+                          icon={{name:"angle-left", type: 'font-awesome', style: { marginRight: 0, marginLeft: 0 }}} 
+                          transparent>
+                          </Button>}
           centerComponent={{ text: 'HydrometerControl', style: { color: '#fff', fontSize: 22, } }}
-          rightComponent={<Icon name="tint" color="#fff" style={{fontSize:15}} />}
+          rightComponent={<Button 
+                          onPress={() =>  navigate('Data')} 
+                          buttonStyle={{marginRight: -20, marginBottom:-10}}
+                          icon={{name:"tint", type: 'font-awesome', style: { marginRight: 0, marginLeft: 0 }}} 
+                          transparent>
+                          </Button>}
         />
         <View style={styles.viewTop}>
           <Text style={styles.topText}>
@@ -64,7 +74,7 @@ export class Data extends React.PureComponent {
                     style={{ flex: 1 }}
                     data={data}
                     contentInset={verticalContentInset}
-                    svg={{ stroke: 'rgb(0, 125, 255)' }}
+                    svg={{ stroke: 'rgb(204, 61, 209)' }}
                 >
                     <Grid/>
                 </LineChart>
@@ -94,7 +104,7 @@ export class Data extends React.PureComponent {
                     style={{ flex: 1 }}
                     data={data}
                     contentInset={verticalContentInset}
-                    svg={{ stroke: 'rgb(0, 125, 255)' }}
+                    svg={{ stroke: 'rgb(109, 204, 61)' }}
                 >
                     <Grid/>
                 </LineChart>

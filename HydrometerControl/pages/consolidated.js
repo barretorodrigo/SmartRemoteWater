@@ -6,6 +6,7 @@ import { Path } from 'react-native-svg';
 import { LineChart, XAxis, YAxis, Grid } from 'react-native-svg-charts'
 import * as shape from 'd3-shape';
 
+
 export class Consolidated extends React.PureComponent {
   render() {
 
@@ -19,7 +20,7 @@ export class Consolidated extends React.PureComponent {
     const data1 = [ 5, 1, 4, 9.5, -4, -2.4, 8.5, 9.1, 3.5, 5.3, -5.3, 2.4, 5, -2, -6 ]
     const data2 = [ 5, 1, 4, 9.5, -4, -2.4, 8.5, 9.1, 3.5, 5.3, -5.3, 2.4, 5, -2, -6 ]
     const axesSvg = { fontSize: 10, fill: 'grey' };
-    const verticalContentInset = { top: 10, bottom: 10 }
+    const verticalContentInset = { top: 20, bottom: 20 }
     const xAxisHeight = 30
 
 
@@ -66,16 +67,18 @@ export class Consolidated extends React.PureComponent {
         <View style={{ height: 200, padding: 20, flexDirection: 'row' }}>
             <YAxis
                 data={data1}
-                style={{ marginBottom: xAxisHeight, marginTop: -10 }}
                 contentInset={verticalContentInset}
                 svg={axesSvg}
+                numberOfTicks={5}
             />
             <View style={{ flex: 1, marginLeft: 10 }}>
+                <View style={{ flex: 1}}></View>
                 <LineChart
-                    style={{ flex: 1 }}
+                    style={ StyleSheet.absoluteFill }
                     data={data1}
                     contentInset={verticalContentInset}
                     svg={{ stroke: 'rgb(204, 61, 209)' }}
+                    numberOfTicks={5}
                 >
                     <Grid/>
                 </LineChart>

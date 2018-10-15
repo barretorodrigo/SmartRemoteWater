@@ -9,7 +9,10 @@
   "dependencies": {
     "react": "16.3.1",
     "react-native": "0.55.2",
+    "react-native-chart-kit": "^1.1.8",
+    "react-native-charts-wrapper": "^0.5.0",
     "react-native-elements": "^0.19.1",
+    "react-native-pure-chart": "0.0.24",
     "react-native-svg": "^5.2.0",
     "react-native-svg-charts": "^5.2.1",
     "react-native-vector-icons": "^6.0.2",

@@ -71,14 +71,14 @@ export class Consolidated extends React.PureComponent {
                 svg={axesSvg}
                 numberOfTicks={5}
             />
-            <View style={{ flex: 1, marginLeft: 10 }}>
-                <View style={{ flex: 1}}></View>
+            <View style={{ flex: 1, marginLeft: 10, marginTop:10 }}>
                 <LineChart
                     style={ StyleSheet.absoluteFill }
                     data={data1}
                     contentInset={verticalContentInset}
                     svg={{ stroke: 'rgb(204, 61, 209)' }}
                     numberOfTicks={5}
+                    min={0}
                 >
                     <Grid/>
                 </LineChart>
@@ -89,11 +89,12 @@ export class Consolidated extends React.PureComponent {
                     svg={{ stroke: 'rgb(109, 204, 61)' }}
                 >
                 </LineChart>
+                <View style={{ flex: 1}}></View>
                 <XAxis
-                    style={{ marginHorizontal: -10, height: xAxisHeight }}
+                    style={{ height: xAxisHeight, marginHorizontal: -10 }}
                     data={data1}
                     formatLabel={(value, index) => index}
-                    contentInset={{ left: 10, right: 10 }}
+                    contentInset={{ left: 10, right: 10}}
                     svg={axesSvg}
                 />
             </View>

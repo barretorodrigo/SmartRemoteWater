@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, StatusBar } from 'react-native';
+import { StyleSheet, ActivityIndicator, Text, View, StatusBar, FlatList } from 'react-native';
 import {Header, Divider, ListItem, Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Path } from 'react-native-svg';
@@ -9,20 +9,62 @@ import * as shape from 'd3-shape';
 
 
 export class Index extends React.Component {
+
+  constructor(props){
+    super(props);
+    this.state ={ isLoading: true}
+  }
+
+  componentDidMount(){
+    return fetch('http://www.mocky.io/v2/5bcb5d692f0000620075bec9')
+      .then((response) => response.json())
+      .then((responseJson) => {
+
+        this.setState({
+          isLoading: false,
+          dataSource: responseJson,
+        }, function(){
+
+        });
+
+      })
+      .catch((error) =>{
+        console.error(error);
+      });
+  }
+
+
+  _renderItem = ({item}) => {
+    return(
+        <ListItem
+
+          title={<Text style={styles.titleText}>{item.name}</Text>}
+          subtitle={<Text style={styles.subtitleText}>{item.subtitle}</Text>}
+          avatar={{ uri: item.avatar_url }}
+          onPress={()=>this._onItemPress(item)}
+        />
+      )
+  }
+
+  _onItemPress = (item) => {
+        this.props.navigation.navigate('Details', {
+            name: item.name,
+            avatar_url: item.avatar_url,
+            subtitle: item.subtitle,
+          })
+  } 
+
   render() {
 
-    const { navigate } = this.props.navigation;
-
-    const data = [ 50, 10, 40, 95, -4, -24, 85, 91, 35, 53, -53, 24, 50, -20, -80 ]
-
-        const Line = ({ line }) => (
-            <Path
-                key={'line'}
-                d={line}
-                stroke={'rgb(134, 65, 244)'}
-                fill={'none'}
-            />
+    if(this.state.isLoading){
+        return(
+          <View style={{flex: 1, padding: 20}}>
+            <ActivityIndicator/>
+          </View>
         )
+      }
+
+    const { navigate } = this.props.navigation;
 
     const list = [
       {
@@ -66,7 +108,15 @@ export class Index extends React.Component {
               />
             ))
           }
+
         </View>
+        <View style={{flex: 1, paddingTop:20}}>
+        <FlatList
+          data={this.state.dataSource}
+          renderItem={this._renderItem}
+          keyExtractor={({id}, index) => id}
+        />
+      </View>
         <View style={styles.footer}>
           <Text style={styles.footerText}>Sistema para controle de hidrômetros - DECiv/UFSCar e IFSP</Text>
         </View>

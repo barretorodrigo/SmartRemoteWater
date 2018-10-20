@@ -16,7 +16,7 @@ export class Index extends React.Component {
   }
 
   componentDidMount(){
-    return fetch('http://www.mocky.io/v2/5bcb5d692f0000620075bec9')
+    return fetch('http://www.mocky.io/v2/5bcb834f2f0000540075beea')
       .then((response) => response.json())
       .then((responseJson) => {
 
@@ -40,7 +40,7 @@ export class Index extends React.Component {
 
           title={<Text style={styles.titleText}>{item.name}</Text>}
           subtitle={<Text style={styles.subtitleText}>{item.subtitle}</Text>}
-          avatar={{ uri: item.avatar_url }}
+          avatar={{ uri: item.image }}
           onPress={()=>this._onItemPress(item)}
         />
       )
@@ -48,8 +48,9 @@ export class Index extends React.Component {
 
   _onItemPress = (item) => {
         this.props.navigation.navigate('Details', {
+            id: item.id,
             name: item.name,
-            avatar_url: item.avatar_url,
+            image: item.image,
             subtitle: item.subtitle,
           })
   } 
@@ -65,7 +66,7 @@ export class Index extends React.Component {
       }
 
     const { navigate } = this.props.navigation;
-
+/*
     const list = [
       {
         name: 'Hidrômetro 1',
@@ -77,7 +78,7 @@ export class Index extends React.Component {
         avatar_url: 'https://http2.mlstatic.com/sensor-de-fluxo-de-agua-12-medidor-de-vazo-efeito-hall-D_NQ_NP_356401-MLB20330709676_062015-F.jpg',
         subtitle: 'Hidrômetro arduino - efeito hall'
       },
-      ]
+      ]*/
 
     return (
       <View style={styles.container}>
@@ -92,7 +93,7 @@ export class Index extends React.Component {
                           </Button>}
         />
 
-        <View>
+        {/*<View>
           {
             list.map((l, i) => (
               <ListItem
@@ -109,7 +110,7 @@ export class Index extends React.Component {
             ))
           }
 
-        </View>
+        </View>*/}
         <View style={{flex: 1, paddingTop:20}}>
         <FlatList
           data={this.state.dataSource}

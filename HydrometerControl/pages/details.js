@@ -12,23 +12,11 @@ export class Details extends React.PureComponent {
     const { navigate } = this.props.navigation;
     const { navigation } = this.props;
 
+    const id = navigation.getParam('id', '1');
     const name = navigation.getParam('name', 'Sem hidrômetro');
-    const avatar_url = navigation.getParam('avatar_url', 'Sem imagem');
+    const image = navigation.getParam('image', 'Sem imagem');
     const subtitle = navigation.getParam('subtitle', 'Sem subtítulo');
 
-
-    const list = [
-      {
-        name: 'Hidrômetro 1',
-        avatar_url: 'https://http2.mlstatic.com/20-hidrmetro-34-pre-equipadosem-sensor-conexoes-D_NQ_NP_889301-MLB20306167063_052015-O.jpg',
-        subtitle: 'Hidrômetro residencial - reed switch'
-      },
-      {
-        name: 'Hidrômetro 2',
-        avatar_url: 'https://http2.mlstatic.com/sensor-de-fluxo-de-agua-12-medidor-de-vazo-efeito-hall-D_NQ_NP_356401-MLB20330709676_062015-F.jpg',
-        subtitle: 'Hidrômetro arduino - efeito hall'
-      },
-      ]
 
     return (
       <View style={styles.container}>
@@ -56,7 +44,7 @@ export class Details extends React.PureComponent {
         <View>
           <Card
             title={JSON.stringify(name)}
-            image={{ uri: avatar_url }}>
+            image={{ uri: image }}>
             <Text style={{marginBottom: 10}}>
               Descrição: {JSON.stringify(subtitle)}
             </Text>
@@ -68,7 +56,10 @@ export class Details extends React.PureComponent {
               backgroundColor='#3D6DCC'
               buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
               title='Dados' 
-              onPress={() => navigate('Data')}/>
+              onPress={() => navigate('Data', {
+                  id: id
+                })
+              }/>
           </Card>
         </View>
         <View style={styles.footer}>

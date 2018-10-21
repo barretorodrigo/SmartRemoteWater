@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, StatusBar } from 'react-native';
+import { StyleSheet, Text, View, StatusBar, Image } from 'react-native';
 import {Header, Divider, ListItem} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Path } from 'react-native-svg';
@@ -25,7 +25,10 @@ export class Splash extends React.Component {
     return (
       <View style={styles.container}>
       {this.splash()}
-        <Text style={styles.text}>HydrometerControl</Text>
+        <Image
+          style={styles.image}
+          source={{uri: 'https://raw.githubusercontent.com/barretorodrigo/VRproject/master/img/logo.png?token=AUEgsW_SmbN0X6JgnkRBOIMMXMjI9MuGks5b1cxIwA%3D%3D'}}
+        />
         
       </View>
     );
@@ -36,14 +39,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#3D6DCC',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  titleText: {
-    marginLeft: 10,
-    fontSize: 20,
-  },
-  subtitleText: {
-    color: '#708090',
-    marginLeft: 10,
+  image:{
+    width: 180,
+    height: 100,
   },
   text:{
     flex: 1,

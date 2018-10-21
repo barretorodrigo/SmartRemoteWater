@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, StatusBar} from 'react-native';
+import { StyleSheet, Text, View, StatusBar, ActivityIndicator} from 'react-native';
 import {Header, Divider, ListItem, Card, Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Path } from 'react-native-svg';
@@ -7,7 +7,56 @@ import { LineChart, XAxis, YAxis, Grid } from 'react-native-svg-charts'
 import * as shape from 'd3-shape';
 
 export class Data extends React.PureComponent {
+
+
+  constructor(props){
+    super(props);
+    this.state ={ isLoading: true}
+  }
+
+  componentDidMount(){
+    return fetch('http://www.mocky.io/v2/5bcc7ac1310000680028c552')
+      .then((response) => response.json())
+      .then((responseJson) => {
+
+        this.setState({
+          isLoading: false,
+          dataSource: responseJson,
+        }, function(){
+
+        });
+
+      })
+      .catch((error) =>{
+        console.error(error);
+      });
+  }
+
+
+  _renderItem = ({item}) => {
+    return(
+        <ListItem
+          title={<Text style={styles.titleText}>{item.name}</Text>}
+          subtitle={<Text style={styles.subtitleText}>{item.subtitle}</Text>}
+          avatar={{ uri: item.image }}
+          onPress={()=>this._onItemPress(item)}
+        />
+      )
+  }
+
   render() {
+
+    if(this.state.isLoading){
+        return(
+          <View style={{flex: 1, padding: 20}}>
+            <ActivityIndicator/>
+          </View>
+        )
+      }
+
+    const allValues = this.state.dataSource.map(data => {
+        return parseInt(data.value, 10);
+    });
 
     const { navigate } = this.props.navigation;
     const { navigation } = this.props;
@@ -20,20 +69,6 @@ export class Data extends React.PureComponent {
     const axesSvg = { fontSize: 10, fill: 'grey' };
     const verticalContentInset = { top: 10, bottom: 10 }
     const xAxisHeight = 30
-
-
-    const list = [
-      {
-        name: 'Hidrômetro 1',
-        avatar_url: 'https://http2.mlstatic.com/20-hidrmetro-34-pre-equipadosem-sensor-conexoes-D_NQ_NP_889301-MLB20306167063_052015-O.jpg',
-        subtitle: 'Hidrômetro residencial - reed switch'
-      },
-      {
-        name: 'Hidrômetro 2',
-        avatar_url: 'https://http2.mlstatic.com/sensor-de-fluxo-de-agua-12-medidor-de-vazo-efeito-hall-D_NQ_NP_356401-MLB20330709676_062015-F.jpg',
-        subtitle: 'Hidrômetro arduino - efeito hall'
-      },
-      ]
 
     return (
       <View style={styles.container}>
@@ -64,7 +99,7 @@ export class Data extends React.PureComponent {
         </View>
         <View style={{ height: 200, padding: 20, flexDirection: 'row' }}>
             <YAxis
-                data={data}
+                data={allValues}
                 style={{ marginBottom: xAxisHeight, marginTop: -10 }}
                 contentInset={verticalContentInset}
                 svg={axesSvg}
@@ -72,7 +107,7 @@ export class Data extends React.PureComponent {
             <View style={{ flex: 1, marginLeft: 10 }}>
                 <LineChart
                     style={{ flex: 1 }}
-                    data={data}
+                    data={allValues}
                     contentInset={verticalContentInset}
                     svg={{ stroke: 'rgb(204, 61, 209)' }}
                 >
@@ -80,7 +115,7 @@ export class Data extends React.PureComponent {
                 </LineChart>
                 <XAxis
                     style={{ marginHorizontal: -10, height: xAxisHeight }}
-                    data={data}
+                    data={allValues}
                     formatLabel={(value, index) => index}
                     contentInset={{ left: 10, right: 10 }}
                     svg={axesSvg}

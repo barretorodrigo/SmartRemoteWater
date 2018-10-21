@@ -18,7 +18,7 @@ export class Consolidated extends React.PureComponent {
     const subtitle = navigation.getParam('subtitle', 'Sem subtítulo');
 
     const data1 = [ 5, 1, 4, 9.5, -4, -2.4, 8.5, 9.1, 3.5, 5.3, -5.3, 2.4, 5, -2, -6 ]
-    const data2 = [ 5, 1, 4, 9.5, -4, -2.4, 8.5, 9.1, 3.5, 5.3, -5.3, 2.4, 5, -2, -6 ]
+    const data2 = [ 5, 1, 4, 9.5, -7, 2.4, 8.5, 9.1, 5.5, 2.3, -3.3, 2.4, 5, -2, -6 ]
     const axesSvg = { fontSize: 10, fill: 'grey' };
     const verticalContentInset = { top: 20, bottom: 20 }
     const xAxisHeight = 30

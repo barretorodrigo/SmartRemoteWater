@@ -16,7 +16,7 @@ export class Index extends React.Component {
   }
 
   componentDidMount(){
-    return fetch('http://www.mocky.io/v2/5bcb834f2f0000540075beea')
+    return fetch('https://api.rbarreto.com.br/hydrometers')
       .then((response) => response.json())
       .then((responseJson) => {
 

@@ -1,11 +1,11 @@
 import json
 import requests
 
-url = 'http://localhost/hydrometer/values'
+url = 'https://api.rbarreto.com.br/values'
 data = {
-        "hydrometer": "1",
-        "time": "9",
-        "value": "6"
+        "hydrometer": "2",
+        "time": "12",
+        "value": "60"
     }
 
 data_json = json.dumps(data)

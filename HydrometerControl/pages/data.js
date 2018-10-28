@@ -15,7 +15,7 @@ export class Data extends React.PureComponent {
   }
 
   componentDidMount(){
-    return fetch('http://www.mocky.io/v2/5bcc7ac1310000680028c552')
+    return fetch('https://api.rbarreto.com.br/values/hydrometer/1')
       .then((response) => response.json())
       .then((responseJson) => {
 
@@ -55,7 +55,8 @@ export class Data extends React.PureComponent {
       }
 
     const allValues = this.state.dataSource.map(data => {
-        return parseInt(data.value, 10);
+      data.value=data.value/2;
+        return parseFloat(data.value);
     });
 
     const { navigate } = this.props.navigation;

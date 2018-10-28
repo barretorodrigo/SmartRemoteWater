@@ -1,4 +1,6 @@
-# VRproject
+# Controle de Hidrômetros
+
+Aplicativo para controle de hidrômetros pela internet. Arduino para construir a interface entre os hidrômetros e enviar os dados para uma API e React-Native para receber os dados e exibir em dispositivos móveis atráves de gráficos e valores.
 
 ### Android
 
